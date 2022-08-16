@@ -1,15 +1,15 @@
-import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
 import './FormDetailFields.css';
 
 
 
 export default function FormDetailFields() {
    return (
-    <FormControl>
-      <TextField />
-      <TextField />
-      <TextField />
+    <FormControl fullWidth className="form"l>
+      <TextField className="name-field" />
+      <TextField  className="number-field"/>
+      <TextField className="date-field" />
     </FormControl>
-   )
+   );
 }

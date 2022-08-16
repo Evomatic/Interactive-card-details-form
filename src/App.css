@@ -10,24 +10,36 @@
     height: 100vh;
     align-items: center;
     justify-content: center;
-    margin-left: 50%;
 }
-
+/* mobile view */
 @media  (max-width: 480px) {
     .container {
         background-image: url('./assets/bg-main-mobile.png');
     }
-}
 
+    .box-wrapper {
+        padding-top: 10% ;
+    }
+}
+/* tablet view */
 @media  (min-width: 481px) and (max-width: 1024px) {
     .container {
         background-image: url('./assets/bg-main-mobile.png');
     }
-}
 
+    .box-wrapper {
+        padding-top: 50%;
+    }
+
+}
+/* desktop view */
 @media  (min-width: 1025px) {
     .container {
         background-image: url('./assets/bg-main-desktop.png');
+    }
+
+    .box-wrapper {
+        margin-left: 30%;
     }
 
     
