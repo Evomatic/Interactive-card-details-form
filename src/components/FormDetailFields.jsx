@@ -6,8 +6,8 @@ import './FormDetailFields.css';
 
 export default function FormDetailFields() {
    return (
-    <FormControl fullWidth className="form"l>
-      <TextField className="name-field" />
+    <FormControl className="form">
+      <TextField className="name-field"/>
       <TextField  className="number-field"/>
       <TextField className="date-field" />
     </FormControl>
