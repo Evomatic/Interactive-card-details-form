@@ -1,3 +1,13 @@
+.form {
+    display: flex;
+    row-gap: 45px;
+}
+
+.date-fields {
+    width: 22%;
+}
+
+
 /* mobile view */
 @media (max-width: 480px) {
     .form {
