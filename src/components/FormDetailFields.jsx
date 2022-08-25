@@ -2,8 +2,6 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import './FormDetailFields.css';
 
-
-
 export default function FormDetailFields() {
    return (
     <FormControl className="form">
