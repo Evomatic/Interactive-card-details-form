@@ -1,3 +1,19 @@
+.form {
+    display: grid;
+    row-gap: 50px;
+}
+
+.form-field {
+    border-radius: 10;
+}
+
+/* smaller mobile view */
+@media (max-width: 375px) {
+    .form {
+        margin-top: 50% !important;
+    }
+}
+
 /* mobile view */
 @media (max-width: 480px) {
     .form {
