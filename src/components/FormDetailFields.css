@@ -6,6 +6,10 @@
 .form-field {
     border-radius: 10;
 }
+  
+.form-field .month .year .cvc {
+
+}
 
 /* smaller mobile view */
 @media (max-width: 375px) {
