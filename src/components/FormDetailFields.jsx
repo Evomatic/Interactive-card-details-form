@@ -7,11 +7,11 @@ export default function FormDetailFields() {
 
   function dateFields() {
     return (
-      <Fragment>
+      <div>
         <TextField className="form-field month" />
         <TextField className="form-field year" />
         <TextField className="form-field cvc" />
-      </Fragment>
+      </div>
     )
   }
    return (

@@ -3,12 +3,10 @@
     row-gap: 50px;
 }
 
-.form-field {
-    border-radius: 10;
-}
-  
-.form-field .month .year .cvc {
-
+.form-field.month, 
+.form-field.year, 
+.form-field.cvc {
+    width: 22%;
 }
 
 /* smaller mobile view */
