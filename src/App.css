@@ -1,19 +1,38 @@
 .container {
-    display: flex;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: contain;
 }
 
 .box-wrapper {
-    display: flex;
+    display: grid;
     height: 100vh;
+    grid-template-columns: 1fr 2fr;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
+
+}
+
+.form {
+    grid-column-start: 2;
+    display: grid;
+    row-gap: 50px;
+}
+
+.form-field.month, 
+.form-field.year {
+    width: 80px;
+}
+
+/* smaller mobile view */
+@media (max-width: 375px) {
+    .form {
+        margin-top: 50% !important;
+    }
 }
 
 /* mobile view */
-@media  (max-width: 480px) {
+@media (max-width: 480px) {
     .container {
         background-image: url('./assets/bg-main-mobile.png');
     }
@@ -21,9 +40,14 @@
     .box-wrapper {
         padding-top: 10% ;
     }
+
+    .form {
+        width: 95%;
+    }
 }
+
 /* tablet view */
-@media  (min-width: 481px) and (max-width: 1024px) {
+@media (min-width: 481px) and (max-width: 1024px) {
     .container {
         background-image: url('./assets/bg-main-mobile.png');
     }
@@ -32,16 +56,18 @@
         padding-top: 50%;
     }
 
+   .form {
+    width: 45%;
+   }
 }
+
 /* desktop view */
-@media  (min-width: 1025px) {
+@media (min-width: 1025px) {
     .container {
         background-image: url('./assets/bg-main-desktop.png');
     }
 
-    .box-wrapper {
-        margin-left: 30%;
-    }
-
-    
+   .form {
+    width: 30%;
+   }
 }
