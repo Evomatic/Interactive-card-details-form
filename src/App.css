@@ -28,6 +28,7 @@
 
 .form-field.name {
     grid-area: name;
+    margin-top: 45px;
 }
 
 .form-field.number {
