@@ -15,13 +15,41 @@
 
 .form {
     grid-column-start: 2;
-    display: grid;
+    display: grid !important;
     row-gap: 50px;
+    grid-template-areas: 
+    'name name name'
+    'number number number'
+    'month year cvc';
 }
 
-.form-field.month, 
+.name-label {
+}
+
+.form-field.name {
+    grid-area: name;
+}
+
+.form-field.number {
+    grid-area: number;
+}
+
+.form-field.month {
+   grid-area: month;
+   justify-self: left;
+   width: 80px;
+}
+
 .form-field.year {
+    grid-area: year;
+    justify-self: start;
     width: 80px;
+}
+
+.form-field.cvc {
+    grid-area: cvc;
+    width: 200px;
+    justify-self: end;
 }
 
 /* smaller mobile view */
@@ -68,6 +96,6 @@
     }
 
    .form {
-    width: 30%;
+    width: 35%;
    }
 }
