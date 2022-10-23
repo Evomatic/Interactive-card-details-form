@@ -25,16 +25,38 @@
     display: flex;
     row-gap: 50px;
     margin: 100px 25px 25px 25px !important;
+}
 
+.name-label {
+    position: relative !important;
+    margin-bottom: -35px;
+    margin-left: -15px;
+}
+
+.number-label {
+    position: relative !important;
+    margin-top: -38px;
+    margin-bottom: -35px;
+    margin-left: -15px;
 }
 
 .field-group {
     display: flex;
     column-gap: 15px;
+    width: 100%;
+}
+
+.credit-card-expiration-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.month-label {
+    position: relative !important;
 }
 
 .form-field.month {
-    width: 25%;
+    width: 50%;
 }
 
 .form-field.year {
@@ -43,4 +65,10 @@
 
 .form-field.cvc {
     width: 50%;
+}
+
+.confirm-btn {
+    margin-top: -15px !important;
+    line-height: 35px !important;
+    background-color:  hsl(278, 68%, 11%) !important;
 }
