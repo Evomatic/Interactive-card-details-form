@@ -46,26 +46,35 @@
     width: 100%;
 }
 
-.credit-card-expiration-box {
+.expiration-box {
     display: flex;
-    flex-direction: column;
-}
-
-.month-label {
-    position: relative !important;
-}
-
-.form-field.month {
-    width: 50%;
-}
-
-.form-field.year {
     width: 25%;
 }
 
-.form-field.cvc {
+ .exp-label {
+    margin-top: 212px;
+    margin-left: -14px;
+}
+
+.mm-yy-box {
+    display: flex;
+    width: 25%;
+}
+
+.mm-yy-label {
+    margin-top: 212px;
+    margin-left: 23%;
+ }
+
+.cvc-box {
+    display: flex;
     width: 50%;
 }
+
+.cvc-label {
+    margin-top: 212px;
+    margin-left: 50%;
+ }
 
 .confirm-btn {
     margin-top: -15px !important;
