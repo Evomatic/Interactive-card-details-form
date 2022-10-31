@@ -3,12 +3,17 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { TextField, InputLabel } from '@mui/material';
+import creditCardFront from './assets/bg-card-front.png';
+import creditCardBack from './assets/bg-card-back.png';
 import './App.css';
 
 function App() {
   return (
    <Container className="container" maxWidth="false">
-     <Box className="bg-image" />
+     <Box className="credit-card">
+      <img className="credit-card-back" src={creditCardBack} alt="credit card back" />
+      <img className="credit-card-front" src={creditCardFront} alt="credit card front" />
+     </Box>
      <FormControl className="form">
        <InputLabel className="name-label" size="small" >CARDHOLDER NAME</InputLabel>
        <TextField className="form-field name" placeholder="e.g. Jane Appleseed"/>
