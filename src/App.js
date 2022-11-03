@@ -3,8 +3,8 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { TextField, InputLabel } from '@mui/material';
-import creditCardFront from './assets/bg-card-front.png';
-import creditCardBack from './assets/bg-card-back.png';
+import bgCreditCardFront from './assets/bg-card-front.png';
+import CreditCardBack from './CreditCardBack';
 import './App.css';
 
 const textFieldStyle = {
@@ -20,15 +20,11 @@ const textFieldStyle = {
 function App() {
   return (
    <Container className="container" maxWidth="false">
-     <Box className="credit-card">
-      <img 
-        className="credit-card-back" 
-        src={creditCardBack} 
-        alt="credit card back"
-      />
+     <Box className="credit-card-container">
+      <CreditCardBack />
       <img 
         className="credit-card-front" 
-        src={creditCardFront} 
+        src={bgCreditCardFront} 
         alt="credit card front" 
       />
      </Box>
@@ -56,7 +52,7 @@ function App() {
           <InputLabel 
             className="exp-label" 
             size="small" >
-              EXP. DATE
+             EXP. DATE
           </InputLabel>
           <TextField 
             className="form-field month" 

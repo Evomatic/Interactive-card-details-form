@@ -10,7 +10,7 @@
     padding-left: 0px !important; 
 }
 
-.credit-card {
+.credit-card-container {
     display: grid;
     grid-template-areas: 
     "back"
@@ -27,15 +27,6 @@
     position: relative;
     margin-left: 16px;
     margin-top: -79px;
-}
-
-.credit-card-back {
-    grid-area: back;
-    width: 290px;
-    height: 160px;
-    position: relative;
-    margin-left: 65px;
-    margin-top: 39px;
 }
 
 .form {
@@ -75,7 +66,7 @@
 }
 
  .exp-label {
-    margin-top: 194px;
+    margin-top: 200px;
     margin-left: -14px;
     font-size: 14px;
     color: hsl(278, 68%, 11%) !important;
@@ -87,7 +78,7 @@
 }
 
 .mm-yy-label {
-    margin-top: 194px;
+    margin-top: 200px;
     margin-left: 23%;
     font-size: 14px;
     color: hsl(278, 68%, 11%) !important;
@@ -103,7 +94,7 @@
 }
 
 .cvc-label {
-    margin-top: 194px;
+    margin-top: 200px;
     margin-left: 50%;
     font-size: 14px;
     color: hsl(278, 68%, 11%) !important;

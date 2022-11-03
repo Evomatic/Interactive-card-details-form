@@ -1,4 +1,3 @@
-import { red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 // A custom theme for this app
@@ -9,16 +8,17 @@ const theme = createTheme({
     },
     fontFamily: ["Space Grotesk", "sans-serif"].join(","),
     fontSize: "18px",
+    weight: 500
   },
   palette: {
     primary: {
-      main: '#556cd6',
+      main: 'hsl(249, 99%, 64%)',
     },
     secondary: {
       main: '#19857b',
     },
     error: {
-      main: red.A400,
+      main: "hsl(0, 100%, 66%)",
     },
   },
 });
