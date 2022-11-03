@@ -48,15 +48,19 @@
 
 .name-label {
     position: relative !important;
-    margin-bottom: -35px;
-    margin-left: -15px;
+    margin-bottom: -33px;
+    margin-left: -14px;
+    font-size: 14px;
+    color: hsl(278, 68%, 11%) !important;
 }
 
 .number-label {
     position: relative !important;
     margin-top: -38px;
-    margin-bottom: -35px;
-    margin-left: -15px;
+    margin-bottom: -33px;
+    margin-left: -14px;
+    font-size: 14px;
+    color: hsl(278, 68%, 11%) !important;
 }
 
 .field-group {
@@ -71,8 +75,10 @@
 }
 
  .exp-label {
-    margin-top: 212px;
+    margin-top: 194px;
     margin-left: -14px;
+    font-size: 14px;
+    color: hsl(278, 68%, 11%) !important;
 }
 
 .mm-yy-box {
@@ -81,8 +87,10 @@
 }
 
 .mm-yy-label {
-    margin-top: 212px;
+    margin-top: 194px;
     margin-left: 23%;
+    font-size: 14px;
+    color: hsl(278, 68%, 11%) !important;
  }
 
 .cvc-box {
@@ -95,12 +103,17 @@
 }
 
 .cvc-label {
-    margin-top: 212px;
+    margin-top: 194px;
     margin-left: 50%;
+    font-size: 14px;
+    color: hsl(278, 68%, 11%) !important;
  }
 
 .confirm-btn {
-    margin-top: -15px !important;
+    margin-top: -18px !important;
     line-height: 35px !important;
     background-color:  hsl(278, 68%, 11%) !important;
+    border-radius: 10px !important;
+    padding: 12px 22px !important;
+    font-size: 18px;
 }
