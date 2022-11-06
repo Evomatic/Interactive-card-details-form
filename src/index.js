@@ -9,7 +9,7 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
-  <ThemeProvider theme={theme} >
+  <ThemeProvider theme={theme}>
     <CssBaseline />
     <App />
   </ThemeProvider>

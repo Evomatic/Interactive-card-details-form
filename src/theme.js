@@ -4,11 +4,11 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   typography: {
     button: {
-      textTransform: "none",
+      textTransform: 'none',
     },
-    fontFamily: ["Space Grotesk", "sans-serif"].join(","),
-    fontSize: "18px",
-    weight: 500
+    fontFamily: ['Space Grotesk', 'sans-serif'].join(','),
+    fontSize: '18px',
+    weight: 500,
   },
   palette: {
     primary: {
@@ -18,7 +18,7 @@ const theme = createTheme({
       main: '#19857b',
     },
     error: {
-      main: "hsl(0, 100%, 66%)",
+      main: 'hsl(0, 100%, 66%)',
     },
   },
 });
