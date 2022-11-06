@@ -1,0 +1,29 @@
+.bg-credit-card-front {
+   max-width: inherit;
+   max-height: inherit;
+   height: inherit;
+   width: inherit;
+   object-fit: cover;
+  }
+
+  .credit-card-front-container {
+    display: flex;
+    flex-direction: column;
+    width: 290px;
+    height: 160px;
+    position: relative;
+    top: -69px;
+    left: 15px;
+  }
+
+  .credit-card-number {
+    position: absolute;
+    align-self: center;
+    top: 80px;
+  }
+  .credit-card-name-exp {
+    display: flex;
+    position: absolute;
+    top: 120px;
+    align-self: center;
+  }

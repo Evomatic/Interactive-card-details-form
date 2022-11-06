@@ -20,11 +20,11 @@ function CreditCardBack(props) {
 }
 
 CreditCardBack.propTypes = {
-  cvcValue: PropTypes.string.isRequired,
+  cvcValue: PropTypes.number.isRequired,
 };
 
 CreditCardBack.defaultProps = {
-  cvcValue: '123',
+  cvcValue: 123,
 };
 
 export default CreditCardBack;

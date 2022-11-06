@@ -7,8 +7,8 @@ import Container from '@mui/material/Container';
 import FormControl from '@mui/material/FormControl';
 import { useState } from 'react';
 
-import bgCreditCardFront from './assets/bg-card-front.png';
 import CreditCardBack from './CreditCardBack';
+import CreditCardFront from './CreditCardFront';
 
 const textFieldStyle = {
   '& .MuiOutlinedInput-root': {
@@ -21,7 +21,7 @@ const textFieldStyle = {
 };
 
 function App() {
-  const [ cvcValue, setCvcValue ] = useState('000');
+  const [ cvcValue, setCvcValue ] = useState(123);
   
   const creditCardBackOnChange = (e) => {
        setCvcValue(e.target.value);
@@ -32,11 +32,7 @@ function App() {
     <Container className="container" maxWidth="false">
       <Box className="credit-card-container">
         <CreditCardBack cvcValue={cvcValue} />
-        <img
-          className="credit-card-front"
-          src={bgCreditCardFront}
-          alt="credit card front"
-        />
+        <CreditCardFront />
       </Box>
       <FormControl className="form">
         <InputLabel className="name-label" size="small">
@@ -84,12 +80,11 @@ function App() {
               CVC
             </InputLabel>
             <TextField
+              required
               className="form-field cvc"
               placeholder="e.g. 123"
               sx={textFieldStyle}
-              type="string"
               onChange={creditCardBackOnChange}
-              required
             />
           </Box>
         </Box>
