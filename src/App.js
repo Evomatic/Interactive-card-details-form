@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import FormControl from '@mui/material/FormControl';
+import { useState } from 'react';
 
 import bgCreditCardFront from './assets/bg-card-front.png';
 import CreditCardBack from './CreditCardBack';
@@ -20,10 +21,17 @@ const textFieldStyle = {
 };
 
 function App() {
+  const [ cvcValue, setCvcValue ] = useState('000');
+  
+  const creditCardBackOnChange = (e) => {
+       setCvcValue(e.target.value);
+  }
+
+
   return (
     <Container className="container" maxWidth="false">
       <Box className="credit-card-container">
-        <CreditCardBack />
+        <CreditCardBack cvcValue={cvcValue} />
         <img
           className="credit-card-front"
           src={bgCreditCardFront}
@@ -79,6 +87,9 @@ function App() {
               className="form-field cvc"
               placeholder="e.g. 123"
               sx={textFieldStyle}
+              type="string"
+              onChange={creditCardBackOnChange}
+              required
             />
           </Box>
         </Box>

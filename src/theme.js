@@ -7,7 +7,7 @@ const theme = createTheme({
       textTransform: 'none',
     },
     fontFamily: ['Space Grotesk', 'sans-serif'].join(','),
-    fontSize: '18px',
+    fontSize: 12,
     weight: 500,
   },
   palette: {

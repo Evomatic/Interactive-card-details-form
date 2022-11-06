@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import bgCreditCardBack from './assets/bg-card-back.png';
 
 function CreditCardBack(props) {
-  const { cardCvc } = props;
+  const { cvcValue } = props;
 
   return (
     <div className="credit-card-back-container">
-      <div className="credit-card-cvc">{cardCvc}</div>
+      <div className="credit-card-cvc">{cvcValue}</div>
       <img
         className="bg-credit-card-back"
         src={bgCreditCardBack}
@@ -20,11 +20,11 @@ function CreditCardBack(props) {
 }
 
 CreditCardBack.propTypes = {
-  cardCvc: PropTypes.number,
+  cvcValue: PropTypes.string.isRequired,
 };
 
 CreditCardBack.defaultProps = {
-  cardCvc: 123,
+  cvcValue: '123',
 };
 
 export default CreditCardBack;
