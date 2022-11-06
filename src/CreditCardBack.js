@@ -1,6 +1,8 @@
-import bgCreditCardBack from './assets/bg-card-back.png';
-import PropTypes from 'prop-types';
 import './CreditCardBack.css';
+
+import PropTypes from 'prop-types';
+
+import bgCreditCardBack from './assets/bg-card-back.png';
 
 function CreditCardBack(props) {
   const { cardCvc } = props;
