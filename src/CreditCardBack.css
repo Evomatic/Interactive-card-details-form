@@ -3,14 +3,13 @@
   max-height: inherit;
   height: inherit;
   width: inherit;
-  object-fit: cover;
 }
 
 .credit-card-back-container {
   display: flex;
   flex-direction: column;
   width: 290px;
-  height: 160px;
+  height: 166px;
   position: relative;
   margin-left: 68px;
   margin-top: 39px;

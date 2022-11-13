@@ -1,6 +1,6 @@
 import './App.css';
 
-import { InputLabel,TextField } from '@mui/material';
+import { InputLabel, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 import CreditCardBack from './CreditCardBack';
 import CreditCardFront from './CreditCardFront';
+import { formatCardNumber } from './utils';
 
 const textFieldStyle = {
   '& .MuiOutlinedInput-root': {
@@ -21,18 +22,23 @@ const textFieldStyle = {
 };
 
 function App() {
-  const [ cvcValue, setCvcValue ] = useState(123);
-  
-  const creditCardBackOnChange = (e) => {
-       setCvcValue(e.target.value);
-  }
+  const [cvcValue, setCvcValue] = useState('123');
+  const [ccNumber, setCcNumber] = useState('0000 0000 0000 0000');
 
+  const creditCardBackOnChange = e => {
+    setCvcValue(e.target.value);
+  };
+
+  const creditCardNumberFrontOnChange = e => {
+    const results = formatCardNumber(e.target.value);
+    setCcNumber(results);
+  };
 
   return (
     <Container className="container" maxWidth="false">
       <Box className="credit-card-container">
         <CreditCardBack cvcValue={cvcValue} />
-        <CreditCardFront />
+        <CreditCardFront number={ccNumber} />
       </Box>
       <FormControl className="form">
         <InputLabel className="name-label" size="small">
@@ -50,6 +56,10 @@ function App() {
           className="form-field number"
           placeholder="e.g. 1234 5678 9123 0000"
           sx={textFieldStyle}
+          onChange={creditCardNumberFrontOnChange}
+          inputProps={{
+            maxLength: 16,
+          }}
         />
         <Box className="field-group">
           <Box className="expiration-box">
@@ -85,6 +95,9 @@ function App() {
               placeholder="e.g. 123"
               sx={textFieldStyle}
               onChange={creditCardBackOnChange}
+              inputProps={{
+                maxLength: 3,
+              }}
             />
           </Box>
         </Box>

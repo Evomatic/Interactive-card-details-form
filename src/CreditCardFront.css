@@ -1,29 +1,51 @@
 .bg-credit-card-front {
-   max-width: inherit;
-   max-height: inherit;
-   height: inherit;
-   width: inherit;
-   object-fit: cover;
-  }
+  max-width: inherit;
+  max-height: inherit;
+  height: inherit;
+  width: inherit;
+}
 
-  .credit-card-front-container {
-    display: flex;
-    flex-direction: column;
-    width: 290px;
-    height: 160px;
-    position: relative;
-    top: -69px;
-    left: 15px;
-  }
+.credit-card-front-container {
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  height: 166px;
+  position: relative;
+  top: -72px;
+  left: 15px;
+}
 
-  .credit-card-number {
-    position: absolute;
-    align-self: center;
-    top: 80px;
-  }
-  .credit-card-name-exp {
-    display: flex;
-    position: absolute;
-    top: 120px;
-    align-self: center;
-  }
+.credit-card-number {
+  position: absolute;
+  align-self: center;
+  top: 82px;
+  color: hsl(0, 0%, 100%);
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.credit-card-name-exp {
+  display: flex;
+  position: absolute;
+  font-size: 12px;
+  color: hsl(0, 0%, 100%);
+  gap: 140px;
+  top: 125px;
+  align-self: center;
+}
+
+.credit-card-exp {
+  margin-right: -5px;
+}
+
+.credit-card-name {
+  margin-right: 6px;
+}
+
+.credit-card-logo {
+  width: 60px;
+  height: 34px;
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 24px;
+  position: absolute;
+}
