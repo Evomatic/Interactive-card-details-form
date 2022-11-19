@@ -18,7 +18,7 @@
 .credit-card-number {
   position: absolute;
   align-self: center;
-  top: 82px;
+  top: 85px;
   color: hsl(0, 0%, 100%);
   font-size: 20px;
   letter-spacing: 1px;
@@ -26,19 +26,40 @@
 .credit-card-name-exp {
   display: flex;
   position: absolute;
-  font-size: 12px;
+  font-size: 10px;
   color: hsl(0, 0%, 100%);
   gap: 140px;
-  top: 125px;
+  top: 132px;
   align-self: center;
+  width: 100%;
 }
 
 .credit-card-exp {
+  display: flex;
   margin-right: -5px;
+  padding-left: 240px;
+  width: 270px;
+}
+
+.month {
+position: absolute;
+padding-left: -1px;
+}
+
+.slash {
+  padding-left: 13px;
+  
+}
+
+.year {
+  padding-left: 1px;
+
 }
 
 .credit-card-name {
   margin-right: 6px;
+  position: absolute;
+  margin-left: 24px;
 }
 
 .credit-card-logo {

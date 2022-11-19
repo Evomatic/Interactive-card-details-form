@@ -15,7 +15,7 @@ function CreditCardFront(props) {
       <div className="credit-card-name-exp">
         <span className="credit-card-name">{name}</span>
         <span className="credit-card-exp">
-          {month}/{year}
+          <span className="month">{month}</span><span className="slash">/</span><span className="year">{year}</span>
         </span>
       </div>
       <img
