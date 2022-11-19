@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 import CreditCardBack from './CreditCardBack';
 import CreditCardFront from './CreditCardFront';
-import { formatCardNumber } from './utils';
+import { formatCardNumber, lettersOnly, onlyNumbers } from './utils';
 
 const textFieldStyle = {
   '& .MuiOutlinedInput-root': {
@@ -22,8 +22,11 @@ const textFieldStyle = {
 };
 
 function App() {
-  const [cvcValue, setCvcValue] = useState('123');
+  const [cvcValue, setCvcValue] = useState('000');
   const [ccNumber, setCcNumber] = useState('0000 0000 0000 0000');
+  const [ccMonth, setCcMonth] = useState('00');
+  const [ccYear, setCcYear] = useState('00');
+  const [ccName, setCcName] = useState('JANE APPLESEED');
 
   const creditCardBackOnChange = e => {
     setCvcValue(e.target.value);
@@ -34,11 +37,31 @@ function App() {
     setCcNumber(results);
   };
 
+  const creditCardMonthFrontOnChange = e => {
+    const results = onlyNumbers(e.target.value);
+    setCcMonth(results);
+  };
+
+  const creditCardYearFrontOnChange = e => {
+    const results = onlyNumbers(e.target.value);
+    setCcYear(results);
+  };
+
+  const creditCardNameFrontOnChange = e => {
+    const results = lettersOnly(e.target.value);
+    setCcName(results);
+  };
+
   return (
     <Container className="container" maxWidth="false">
       <Box className="credit-card-container">
         <CreditCardBack cvcValue={cvcValue} />
-        <CreditCardFront number={ccNumber} />
+        <CreditCardFront
+          name={ccName}
+          number={ccNumber}
+          month={ccMonth}
+          year={ccYear}
+        />
       </Box>
       <FormControl className="form">
         <InputLabel className="name-label" size="small">
@@ -48,6 +71,7 @@ function App() {
           className="form-field name"
           placeholder="e.g. Jane Appleseed"
           sx={textFieldStyle}
+          onChange={creditCardNameFrontOnChange}
         />
         <InputLabel className="number-label" size="small">
           CARD NUMBER
@@ -70,6 +94,10 @@ function App() {
               className="form-field month"
               placeholder="MM"
               sx={textFieldStyle}
+              onChange={creditCardMonthFrontOnChange}
+              inputProps={{
+                maxLength: 2,
+              }}
             />
           </Box>
           <Box className="mm-yy-box">
@@ -83,6 +111,10 @@ function App() {
               className="form-field year"
               placeholder="YY"
               sx={textFieldStyle}
+              onChange={creditCardYearFrontOnChange}
+              inputProps={{
+                maxLength: 2,
+              }}
             />
           </Box>
           <Box className="cvc-box">

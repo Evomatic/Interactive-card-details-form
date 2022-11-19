@@ -6,7 +6,7 @@ import bgCreditCardFront from './assets/bg-card-front.png';
 import cardLogo from './assets/card-logo.svg';
 
 function CreditCardFront(props) {
-  const { name, expiration, number } = props;
+  const { name, month, year, number } = props;
 
   return (
     <div className="credit-card-front-container">
@@ -14,7 +14,9 @@ function CreditCardFront(props) {
       <div className="credit-card-number">{number}</div>
       <div className="credit-card-name-exp">
         <span className="credit-card-name">{name}</span>
-        <span className="credit-card-exp">{expiration}</span>
+        <span className="credit-card-exp">
+          {month}/{year}
+        </span>
       </div>
       <img
         className="bg-credit-card-front"
@@ -28,12 +30,8 @@ function CreditCardFront(props) {
 CreditCardFront.propTypes = {
   number: PropTypes.string,
   name: PropTypes.string,
-  expiration: PropTypes.string,
-};
-
-CreditCardFront.defaultProps = {
-  name: 'Evan Trujillo',
-  expiration: '10/30',
+  month: PropTypes.string,
+  year: PropTypes.string,
 };
 
 export default CreditCardFront;
