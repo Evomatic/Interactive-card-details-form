@@ -42,18 +42,16 @@
 }
 
 .month {
-position: absolute;
-padding-left: -1px;
+  position: absolute;
+  padding-left: -1px;
 }
 
 .slash {
   padding-left: 13px;
-  
 }
 
 .year {
   padding-left: 1px;
-
 }
 
 .credit-card-name {
