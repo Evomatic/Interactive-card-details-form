@@ -4,8 +4,10 @@ import { InputLabel, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
+import PropTypes from 'prop-types';
 import { Fragment, useState } from 'react';
 
+import CompleteView from './CompleteView';
 import CreditCardBack from './CreditCardBack';
 import CreditCardFront from './CreditCardFront';
 import { formatCardNumber, lettersOnly, onlyNumbers } from './utils';
@@ -26,9 +28,20 @@ function CardDetailsForm() {
   const [ccMonth, setCcMonth] = useState('00');
   const [ccYear, setCcYear] = useState('00');
   const [ccName, setCcName] = useState('JANE APPLESEED');
+  const [submit, setSubmit] = useState(false);
+
+  const dataToSubmit = {
+    card_holder: ccName,
+    card_number: ccNumber.replace(/\s/g, ''),
+    expiration: { month: ccMonth, year: ccYear },
+    cvc: cvcValue,
+  };
+
+  console.log(dataToSubmit);
 
   const creditCardBackOnChange = e => {
-    setCvcValue(e.target.value);
+    const results = onlyNumbers(e.target.value);
+    setCvcValue(results);
   };
 
   const creditCardNumberFrontOnChange = e => {
@@ -51,6 +64,10 @@ function CardDetailsForm() {
     setCcName(results);
   };
 
+  const onClickSubmit = () => {
+     setSubmit(true);
+  };
+
   return (
     <Fragment>
       <Box className="credit-card-container">
@@ -63,6 +80,7 @@ function CardDetailsForm() {
         />
       </Box>
       <FormControl className="form">
+        {!submit && (<Fragment>
         <InputLabel className="name-label" size="small">
           CARDHOLDER NAME
         </InputLabel>
@@ -132,16 +150,24 @@ function CardDetailsForm() {
             />
           </Box>
         </Box>
+        </Fragment>
+        )}
+        {submit && <CompleteView />}
         <Button
           className="confirm-btn"
           type="submit"
           variant="contained"
-          size="large">
-          Confirm
+          size="large"
+          onClick={onClickSubmit}>
+          {!submit ? 'Confirm' : 'Continue'}
         </Button>
       </FormControl>
     </Fragment>
   );
 }
+
+CardDetailsForm.propTypes = {
+  submit: PropTypes.bool,
+};
 
 export default CardDetailsForm;
