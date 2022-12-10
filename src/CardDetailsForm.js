@@ -40,7 +40,7 @@ function CardDetailsForm() {
     card_number: ccNumber.replace(/\s/g, ''),
     expiration: { month: ccMonth, year: ccYear },
     cvc: cvcValue,
-    submit: submit
+    submit: submit,
   };
 
   console.log(dataToSubmit);

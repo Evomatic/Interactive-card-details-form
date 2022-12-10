@@ -13,7 +13,9 @@ function CreditCardFront(props) {
       <img className="credit-card-logo" src={cardLogo} alt="credit card logo" />
       <div className="credit-card-number">{number}</div>
       <div className="credit-card-name-exp">
-        <span className="credit-card-name">{isStringEmpty(name) ? 'JANE APPLESEED' : name}</span>
+        <span className="credit-card-name">
+          {isStringEmpty(name) ? 'JANE APPLESEED' : name}
+        </span>
         <span className="credit-card-exp">
           <span className="month">{month}</span>
           <span className="slash">/</span>
