@@ -1,3 +1,18 @@
 .complete-view-container {
-  display: grid;
+  display: flex;
+  width: 100%;
+  height: 260px;
+  flex-direction: column;
+}
+
+.complete-icon {
+    place-self: center;
+}
+
+.thank-you-text {
+    place-self: center;
+}
+
+.descriptive-text {
+    place-self: center;
 }
