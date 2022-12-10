@@ -9,7 +9,9 @@ function CompleteView() {
     <Box className="complete-view-container">
       <img className="complete-icon" src={completeIcon} alt="complete icon" />
       <span className="thank-you-text">THANK YOU!</span>
-      <span className="descriptive-text">We&apos;ve added your card details</span>
+      <span className="descriptive-text">
+        We&apos;ve added your card details
+      </span>
     </Box>
   );
 }

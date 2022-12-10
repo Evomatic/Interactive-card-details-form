@@ -10,7 +10,12 @@ import { Fragment, useState } from 'react';
 import CompleteView from './CompleteView';
 import CreditCardBack from './CreditCardBack';
 import CreditCardFront from './CreditCardFront';
-import { formatCardNumber, lettersOnly, onlyNumbers } from './utils';
+import {
+  checkCreditCardDataOnSubmit,
+  formatCardNumber,
+  lettersOnly,
+  onlyNumbers,
+} from './utils';
 
 const textFieldStyle = {
   '& .MuiOutlinedInput-root': {
@@ -27,7 +32,7 @@ function CardDetailsForm() {
   const [ccNumber, setCcNumber] = useState('0000 0000 0000 0000');
   const [ccMonth, setCcMonth] = useState('00');
   const [ccYear, setCcYear] = useState('00');
-  const [ccName, setCcName] = useState('JANE APPLESEED');
+  const [ccName, setCcName] = useState('');
   const [submit, setSubmit] = useState(false);
 
   const dataToSubmit = {
@@ -35,6 +40,7 @@ function CardDetailsForm() {
     card_number: ccNumber.replace(/\s/g, ''),
     expiration: { month: ccMonth, year: ccYear },
     cvc: cvcValue,
+    submit: submit
   };
 
   console.log(dataToSubmit);
@@ -65,7 +71,7 @@ function CardDetailsForm() {
   };
 
   const onClickSubmit = () => {
-     setSubmit(true);
+    checkCreditCardDataOnSubmit(dataToSubmit, setSubmit);
   };
 
   return (
@@ -80,77 +86,78 @@ function CardDetailsForm() {
         />
       </Box>
       <FormControl className="form">
-        {!submit && (<Fragment>
-        <InputLabel className="name-label" size="small">
-          CARDHOLDER NAME
-        </InputLabel>
-        <TextField
-          className="form-field name"
-          placeholder="e.g. Jane Appleseed"
-          sx={textFieldStyle}
-          onChange={creditCardNameFrontOnChange}
-        />
-        <InputLabel className="number-label" size="small">
-          CARD NUMBER
-        </InputLabel>
-        <TextField
-          className="form-field number"
-          placeholder="e.g. 1234 5678 9123 0000"
-          sx={textFieldStyle}
-          onChange={creditCardNumberFrontOnChange}
-          inputProps={{
-            maxLength: 16,
-          }}
-        />
-        <Box className="field-group">
-          <Box className="expiration-box">
-            <InputLabel className="exp-label" size="small">
-              EXP. DATE
+        {!submit && (
+          <Fragment>
+            <InputLabel className="name-label" size="small">
+              CARDHOLDER NAME
             </InputLabel>
             <TextField
-              className="form-field month"
-              placeholder="MM"
+              className="form-field name"
+              placeholder="e.g. Jane Appleseed"
               sx={textFieldStyle}
-              onChange={creditCardMonthFrontOnChange}
-              inputProps={{
-                maxLength: 2,
-              }}
+              onChange={creditCardNameFrontOnChange}
             />
-          </Box>
-          <Box className="mm-yy-box">
-            <InputLabel
-              className="mm-yy-label"
-              size="small"
-              sx={textFieldStyle}>
-              (MM/YY)
+            <InputLabel className="number-label" size="small">
+              CARD NUMBER
             </InputLabel>
             <TextField
-              className="form-field year"
-              placeholder="YY"
+              className="form-field number"
+              placeholder="e.g. 1234 5678 9123 0000"
               sx={textFieldStyle}
-              onChange={creditCardYearFrontOnChange}
+              onChange={creditCardNumberFrontOnChange}
               inputProps={{
-                maxLength: 2,
+                maxLength: 16,
               }}
             />
-          </Box>
-          <Box className="cvc-box">
-            <InputLabel className="cvc-label" size="small">
-              CVC
-            </InputLabel>
-            <TextField
-              required
-              className="form-field cvc"
-              placeholder="e.g. 123"
-              sx={textFieldStyle}
-              onChange={creditCardBackOnChange}
-              inputProps={{
-                maxLength: 3,
-              }}
-            />
-          </Box>
-        </Box>
-        </Fragment>
+            <Box className="field-group">
+              <Box className="expiration-box">
+                <InputLabel className="exp-label" size="small">
+                  EXP. DATE
+                </InputLabel>
+                <TextField
+                  className="form-field month"
+                  placeholder="MM"
+                  sx={textFieldStyle}
+                  onChange={creditCardMonthFrontOnChange}
+                  inputProps={{
+                    maxLength: 2,
+                  }}
+                />
+              </Box>
+              <Box className="mm-yy-box">
+                <InputLabel
+                  className="mm-yy-label"
+                  size="small"
+                  sx={textFieldStyle}>
+                  (MM/YY)
+                </InputLabel>
+                <TextField
+                  className="form-field year"
+                  placeholder="YY"
+                  sx={textFieldStyle}
+                  onChange={creditCardYearFrontOnChange}
+                  inputProps={{
+                    maxLength: 2,
+                  }}
+                />
+              </Box>
+              <Box className="cvc-box">
+                <InputLabel className="cvc-label" size="small">
+                  CVC
+                </InputLabel>
+                <TextField
+                  required
+                  className="form-field cvc"
+                  placeholder="e.g. 123"
+                  sx={textFieldStyle}
+                  onChange={creditCardBackOnChange}
+                  inputProps={{
+                    maxLength: 3,
+                  }}
+                />
+              </Box>
+            </Box>
+          </Fragment>
         )}
         {submit && <CompleteView />}
         <Button
