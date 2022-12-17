@@ -19,10 +19,9 @@ export const isStringEmpty = value => {
 
 export const checkCreditCardDataOnSubmit = (data, setSubmit) => {
   const { card_holder } = data;
-  console.log('data--', data);
 
   if (isStringEmpty(card_holder)) {
-    return console.log('Cant be blank');
+    
   }
 
   setSubmit(true);

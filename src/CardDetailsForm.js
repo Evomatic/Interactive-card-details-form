@@ -27,6 +27,10 @@ const textFieldStyle = {
   },
 };
 
+const ERROR_MESSAGE = {
+  EMPTY_STRING: 'Can\'t be blank'
+}
+
 function CardDetailsForm() {
   const [cvcValue, setCvcValue] = useState('000');
   const [ccNumber, setCcNumber] = useState('0000 0000 0000 0000');
@@ -34,6 +38,14 @@ function CardDetailsForm() {
   const [ccYear, setCcYear] = useState('00');
   const [ccName, setCcName] = useState('');
   const [submit, setSubmit] = useState(false);
+  const [errorMessage, setErrorMessage] = useState({});
+
+  const errorMessages = {
+    name: null,
+    number: null,
+    expiration: { month: null, year: null },
+    cvc: null,
+  };
 
   const dataToSubmit = {
     card_holder: ccName,
@@ -42,8 +54,6 @@ function CardDetailsForm() {
     cvc: cvcValue,
     submit: submit,
   };
-
-  console.log(dataToSubmit);
 
   const creditCardBackOnChange = e => {
     const results = onlyNumbers(e.target.value);
@@ -92,6 +102,8 @@ function CardDetailsForm() {
               CARDHOLDER NAME
             </InputLabel>
             <TextField
+              error={errorMessage.name === null ? false : true}
+              helperText={errorMessage.name}
               className="form-field name"
               placeholder="e.g. Jane Appleseed"
               sx={textFieldStyle}
