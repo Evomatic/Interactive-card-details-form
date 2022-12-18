@@ -31,16 +31,12 @@ Users should be able to:
 
 ![](./screenshot.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+Coming Soon
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [coming soon](https://your-solution-url.com)
+- Live Site URL: [coming soon](https://your-live-site-url.com)
 
 ## My process
 
@@ -67,7 +63,7 @@ This kind of ties in with planning, but prioritising what or how to code first w
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+coming soon
 
 ### Useful resources
 
@@ -78,7 +74,5 @@ Use this section to outline areas that you want to continue focusing on in futur
 - [css tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Great article on using flexbox. 
 
 ## Author
-
-- Website - [Add your name here](https://www.your-site.com)
 - Frontend Mentor - [@Evomatic](https://www.frontendmentor.io/profile/Evomatic)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- LinkedIn - [Evan Trujillo](https://www.linkedin.com/in/evantrujillo/)
