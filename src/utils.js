@@ -13,17 +13,6 @@ export const formatCardNumber = value => {
   );
 };
 
-export const isStringEmpty = value => {
+export const isEmptyString = value => {
   return value.trim().length === 0;
-};
-
-export const checkCreditCardDataOnSubmit = (data, setSubmit) => {
-  const { card_holder } = data;
-
-  if (isStringEmpty(card_holder)) {
-    
-  }
-
-  setSubmit(true);
-  return data;
 };

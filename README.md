@@ -52,9 +52,10 @@ Coming Soon
 
 ### What I learned
 
-Note: This project is still a work in progress. 
+Note: This project is still a work in progress.
 
-### planning: 
+### planning:
+
 Planning a project is probably one of the most important steps. I often found myself wanting to dive right into coding before having any real idea of what I wanted to accomplish. But holding myself back coming up with an approach to build this project was key. Was it perfect planning? Definitely not, but some planning is better than none!
 
 ### priorities:
@@ -71,8 +72,9 @@ coming soon
 
 - [Kevin Powell](https://www.youtube.com/@KevinPowell) - Kevin Powell's videos are a great resource for anything CSS related!
 
-- [css tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Great article on using flexbox. 
+- [css tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Great article on using flexbox.
 
 ## Author
+
 - Frontend Mentor - [@Evomatic](https://www.frontendmentor.io/profile/Evomatic)
 - LinkedIn - [Evan Trujillo](https://www.linkedin.com/in/evantrujillo/)

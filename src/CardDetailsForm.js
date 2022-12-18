@@ -11,8 +11,8 @@ import CompleteView from './CompleteView';
 import CreditCardBack from './CreditCardBack';
 import CreditCardFront from './CreditCardFront';
 import {
-  checkCreditCardDataOnSubmit,
   formatCardNumber,
+  isEmptyString,
   lettersOnly,
   onlyNumbers,
 } from './utils';
@@ -28,29 +28,31 @@ const textFieldStyle = {
 };
 
 const ERROR_MESSAGE = {
-  EMPTY_STRING: 'Can\'t be blank'
-}
+  EMPTY_STRING: "Can't be blank",
+  NUMBERS_ONLY: 'Wrong format, numbers only',
+};
 
 function CardDetailsForm() {
-  const [cvcValue, setCvcValue] = useState('000');
-  const [ccNumber, setCcNumber] = useState('0000 0000 0000 0000');
-  const [ccMonth, setCcMonth] = useState('00');
-  const [ccYear, setCcYear] = useState('00');
+  const [cvcValue, setCvcValue] = useState('');
+  const [ccNumber, setCcNumber] = useState('');
+  const [ccMonth, setCcMonth] = useState('');
+  const [ccYear, setCcYear] = useState('');
   const [ccName, setCcName] = useState('');
   const [submit, setSubmit] = useState(false);
-  const [errorMessage, setErrorMessage] = useState({});
+  const [error, setError] = useState({ card_holder: null,
+    card_number: null,
+    month: null,
+    year: null,
+    cvc: null,});
 
-  const errorMessages = {
-    name: null,
-    number: null,
-    expiration: { month: null, year: null },
-    cvc: null,
-  };
+  let errorMessages = error;
+  console.log(error)
 
   const dataToSubmit = {
     card_holder: ccName,
     card_number: ccNumber.replace(/\s/g, ''),
-    expiration: { month: ccMonth, year: ccYear },
+    month: ccMonth,
+    year: ccYear,
     cvc: cvcValue,
     submit: submit,
   };
@@ -81,7 +83,14 @@ function CardDetailsForm() {
   };
 
   const onClickSubmit = () => {
-    checkCreditCardDataOnSubmit(dataToSubmit, setSubmit);
+    Object.entries(dataToSubmit).filter(([key, value]) => {
+      if (key !== 'submit') {
+        if (isEmptyString(value)) {
+          setError(errorMessages[key] = ERROR_MESSAGE.EMPTY_STRING);
+          setSubmit(false);
+        }
+      }
+    });
   };
 
   return (
@@ -102,14 +111,15 @@ function CardDetailsForm() {
               CARDHOLDER NAME
             </InputLabel>
             <TextField
-              error={errorMessage.name === null ? false : true}
-              helperText={errorMessage.name}
+              error={errorMessages.card_holder === null ? false : true}
+              helperText={errorMessages.card_holder}
               className="form-field name"
               placeholder="e.g. Jane Appleseed"
               sx={textFieldStyle}
               onChange={creditCardNameFrontOnChange}
             />
             <InputLabel className="number-label" size="small">
+              {console.log(errorMessages)}
               CARD NUMBER
             </InputLabel>
             <TextField
