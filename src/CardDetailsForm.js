@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import PropTypes from 'prop-types';
-import { Fragment, useState } from 'react';
+import { Fragment, useReducer, useState } from 'react';
 
 import CompleteView from './CompleteView';
 import CreditCardBack from './CreditCardBack';
@@ -32,6 +32,14 @@ const ERROR_MESSAGE = {
   NUMBERS_ONLY: 'Wrong format, numbers only',
 };
 
+const errorMessages = {
+  card_holder: null,
+  card_number: null,
+  month: null,
+  year: null,
+  cvc: null,
+};
+
 function CardDetailsForm() {
   const [cvcValue, setCvcValue] = useState('');
   const [ccNumber, setCcNumber] = useState('');
@@ -39,14 +47,10 @@ function CardDetailsForm() {
   const [ccYear, setCcYear] = useState('');
   const [ccName, setCcName] = useState('');
   const [submit, setSubmit] = useState(false);
-  const [error, setError] = useState({ card_holder: null,
-    card_number: null,
-    month: null,
-    year: null,
-    cvc: null,});
-
-  let errorMessages = error;
-  console.log(error)
+  const [error, setError] = useReducer(
+    (state, updates) => ({ ...state, ...updates }),
+    errorMessages
+  );
 
   const dataToSubmit = {
     card_holder: ccName,
@@ -54,7 +58,6 @@ function CardDetailsForm() {
     month: ccMonth,
     year: ccYear,
     cvc: cvcValue,
-    submit: submit,
   };
 
   const creditCardBackOnChange = e => {
@@ -82,15 +85,24 @@ function CardDetailsForm() {
     setCcName(results);
   };
 
-  const onClickSubmit = () => {
-    Object.entries(dataToSubmit).filter(([key, value]) => {
-      if (key !== 'submit') {
-        if (isEmptyString(value)) {
-          setError(errorMessages[key] = ERROR_MESSAGE.EMPTY_STRING);
-          setSubmit(false);
-        }
+  const checkErrorValidation = data => {
+    let checkSubmit;
+
+    Object.entries(data).filter(([key, value]) => {
+      if (isEmptyString(value)) {
+        setError({ [key]: ERROR_MESSAGE.EMPTY_STRING });
+        checkSubmit = false;
+      } else {
+        setError({ [key]: null });
+        checkSubmit = true;
       }
     });
+    return checkSubmit;
+  };
+
+  const onClickSubmit = e => {
+    e.preventDefault();
+    setSubmit(checkErrorValidation(dataToSubmit));
   };
 
   return (
@@ -111,18 +123,19 @@ function CardDetailsForm() {
               CARDHOLDER NAME
             </InputLabel>
             <TextField
-              error={errorMessages.card_holder === null ? false : true}
-              helperText={errorMessages.card_holder}
+              error={error.card_holder === null ? false : true}
+              helperText={error.card_holder}
               className="form-field name"
               placeholder="e.g. Jane Appleseed"
               sx={textFieldStyle}
               onChange={creditCardNameFrontOnChange}
             />
             <InputLabel className="number-label" size="small">
-              {console.log(errorMessages)}
               CARD NUMBER
             </InputLabel>
             <TextField
+              error={error.card_number === null ? false : true}
+              helperText={error.card_number}
               className="form-field number"
               placeholder="e.g. 1234 5678 9123 0000"
               sx={textFieldStyle}
@@ -137,6 +150,8 @@ function CardDetailsForm() {
                   EXP. DATE
                 </InputLabel>
                 <TextField
+                  error={error.month === null ? false : true}
+                  helperText={error.month}
                   className="form-field month"
                   placeholder="MM"
                   sx={textFieldStyle}
@@ -154,6 +169,8 @@ function CardDetailsForm() {
                   (MM/YY)
                 </InputLabel>
                 <TextField
+                  helperText={error.year}
+                  error={error.year === null ? false : true}
                   className="form-field year"
                   placeholder="YY"
                   sx={textFieldStyle}
@@ -168,6 +185,8 @@ function CardDetailsForm() {
                   CVC
                 </InputLabel>
                 <TextField
+                  helperText={error.cvc}
+                  error={error.cvc === null ? false : true}
                   required
                   className="form-field cvc"
                   placeholder="e.g. 123"
