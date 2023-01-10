@@ -11,10 +11,11 @@ import CompleteView from './CompleteView';
 import CreditCardBack from './CreditCardBack';
 import CreditCardFront from './CreditCardFront';
 import {
+  containsOnlyNumbers,
   formatCardNumber,
   isEmptyString,
-  lettersOnly,
-  onlyNumbers,
+  removeLetters,
+  removeNumbers,
 } from './utils';
 
 const textFieldStyle = {
@@ -61,7 +62,7 @@ function CardDetailsForm() {
   };
 
   const creditCardBackOnChange = e => {
-    const results = onlyNumbers(e.target.value);
+    const results = removeLetters(e.target.value);
     setCvcValue(results);
   };
 
@@ -71,17 +72,17 @@ function CardDetailsForm() {
   };
 
   const creditCardMonthFrontOnChange = e => {
-    const results = onlyNumbers(e.target.value);
+    const results = removeLetters(e.target.value);
     setCcMonth(results);
   };
 
   const creditCardYearFrontOnChange = e => {
-    const results = onlyNumbers(e.target.value);
+    const results = removeLetters(e.target.value);
     setCcYear(results);
   };
 
   const creditCardNameFrontOnChange = e => {
-    const results = lettersOnly(e.target.value);
+    const results = removeNumbers(e.target.value);
     setCcName(results);
   };
 
@@ -91,6 +92,9 @@ function CardDetailsForm() {
     Object.entries(data).filter(([key, value]) => {
       if (isEmptyString(value)) {
         setError({ [key]: ERROR_MESSAGE.EMPTY_STRING });
+        checkSubmit = false;
+      } else if (key === 'card_number' && !containsOnlyNumbers(value)) {
+        setError({ [key]: ERROR_MESSAGE.NUMBERS_ONLY });
         checkSubmit = false;
       } else {
         setError({ [key]: null });
