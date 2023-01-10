@@ -12,15 +12,15 @@ function CreditCardFront(props) {
   return (
     <Box className="credit-card-front-container">
       <img className="credit-card-logo" src={cardLogo} alt="credit card logo" />
-      <div className="credit-card-number">{number}</div>
+      <div className="credit-card-number">{isEmptyString(number) ? '0000 0000 0000 0000': number}</div>
       <div className="credit-card-name-exp">
         <span className="credit-card-name">
           {isEmptyString(name) ? 'JANE APPLESEED' : name}
         </span>
         <span className="credit-card-exp">
-          <span className="month">{month}</span>
+          <span className="month">{isEmptyString(month) ? '00' : month}</span>
           <span className="slash">/</span>
-          <span className="year">{year}</span>
+          <span className="year">{isEmptyString(year) ? '00' : year}</span>
         </span>
       </div>
       <img
