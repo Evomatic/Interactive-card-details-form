@@ -14,7 +14,6 @@ import {
   containsOnlyNumbers,
   formatCardNumber,
   isEmptyString,
-  removeLetters,
   removeNumbers,
 } from './utils';
 
@@ -62,8 +61,7 @@ function CardDetailsForm() {
   };
 
   const creditCardBackOnChange = e => {
-    const results = removeLetters(e.target.value);
-    setCvcValue(results);
+    setCvcValue(e.target.value);
   };
 
   const creditCardNumberFrontOnChange = e => {
@@ -72,13 +70,11 @@ function CardDetailsForm() {
   };
 
   const creditCardMonthFrontOnChange = e => {
-    const results = removeLetters(e.target.value);
-    setCcMonth(results);
+    setCcMonth(e.target.value);
   };
 
   const creditCardYearFrontOnChange = e => {
-    const results = removeLetters(e.target.value);
-    setCcYear(results);
+    setCcYear(e.target.value);
   };
 
   const creditCardNameFrontOnChange = e => {
@@ -88,12 +84,13 @@ function CardDetailsForm() {
 
   const checkErrorValidation = data => {
     let checkSubmit;
+    const checkFieldFormat = ['card_number', 'month', 'year', 'cvc'];
 
     Object.entries(data).filter(([key, value]) => {
       if (isEmptyString(value)) {
         setError({ [key]: ERROR_MESSAGE.EMPTY_STRING });
         checkSubmit = false;
-      } else if (key === 'card_number' && !containsOnlyNumbers(value)) {
+      } else if (checkFieldFormat.includes(key) && !containsOnlyNumbers(value)) {
         setError({ [key]: ERROR_MESSAGE.NUMBERS_ONLY });
         checkSubmit = false;
       } else {
@@ -105,6 +102,7 @@ function CardDetailsForm() {
   };
 
   const onClickSubmit = e => {
+    console.log(dataToSubmit)
     e.preventDefault();
     setSubmit(checkErrorValidation(dataToSubmit));
   };

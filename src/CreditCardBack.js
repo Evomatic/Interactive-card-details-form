@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import bgCreditCardBack from './assets/bg-card-back.png';
-import { isEmptyString } from './utils';
+import { isEmptyString, removeLetters } from './utils';
 
 function CreditCardBack(props) {
   const { cvcValue } = props;
@@ -12,7 +12,7 @@ function CreditCardBack(props) {
   return (
     <Box className="credit-card-back-container">
       <div className="credit-card-cvc">
-        {isEmptyString(cvcValue) ? '000' : cvcValue}
+        {isEmptyString(cvcValue) ? '000' : removeLetters(cvcValue)}
       </div>
       <img
         className="bg-credit-card-back"

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import bgCreditCardFront from './assets/bg-card-front.png';
 import cardLogo from './assets/card-logo.svg';
-import { isEmptyString } from './utils';
+import { isEmptyString, removeLetters } from './utils';
 function CreditCardFront(props) {
   const { name, month, year, number } = props;
 
@@ -18,9 +18,9 @@ function CreditCardFront(props) {
           {isEmptyString(name) ? 'JANE APPLESEED' : name}
         </span>
         <span className="credit-card-exp">
-          <span className="month">{isEmptyString(month) ? '00' : month}</span>
+          <span className="month">{isEmptyString(month) ? '00' : removeLetters(month)}</span>
           <span className="slash">/</span>
-          <span className="year">{isEmptyString(year) ? '00' : year}</span>
+          <span className="year">{isEmptyString(year) ? '00' : removeLetters(year)}</span>
         </span>
       </div>
       <img
