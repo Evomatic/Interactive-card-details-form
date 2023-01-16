@@ -6,8 +6,9 @@ export const removeNumbers = value => {
   return value.replace(/^\d+$/, '').toUpperCase();
 };
 
-export const containsOnlyNumbers = value => {
-  return value.match('[0-9]+') && value.length === 16;
+export const containsAnyLetters = value => {
+  console.log(/[a-z]/i.test(value));
+  return /[a-z]/i.test(value);
 };
 
 export const formatCardNumber = value => {

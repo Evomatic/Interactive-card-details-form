@@ -5,17 +5,12 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import PropTypes from 'prop-types';
-import { Fragment, useReducer, useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import CompleteView from './CompleteView';
 import CreditCardBack from './CreditCardBack';
 import CreditCardFront from './CreditCardFront';
-import {
-  containsOnlyNumbers,
-  formatCardNumber,
-  isEmptyString,
-  removeNumbers,
-} from './utils';
+import { containsAnyLetters, isEmptyString, removeNumbers } from './utils';
 
 const textFieldStyle = {
   '& .MuiOutlinedInput-root': {
@@ -32,14 +27,6 @@ const ERROR_MESSAGE = {
   NUMBERS_ONLY: 'Wrong format, numbers only',
 };
 
-const errorMessages = {
-  card_holder: null,
-  card_number: null,
-  month: null,
-  year: null,
-  cvc: null,
-};
-
 function CardDetailsForm() {
   const [cvcValue, setCvcValue] = useState('');
   const [ccNumber, setCcNumber] = useState('');
@@ -47,10 +34,13 @@ function CardDetailsForm() {
   const [ccYear, setCcYear] = useState('');
   const [ccName, setCcName] = useState('');
   const [submit, setSubmit] = useState(false);
-  const [error, setError] = useReducer(
-    (state, updates) => ({ ...state, ...updates }),
-    errorMessages
-  );
+  const [error, setError] = useState({
+    card_holder: null,
+    card_number: null,
+    month: null,
+    year: null,
+    cvc: null,
+  });
 
   const dataToSubmit = {
     card_holder: ccName,
@@ -65,7 +55,7 @@ function CardDetailsForm() {
   };
 
   const creditCardNumberFrontOnChange = e => {
-    const results = formatCardNumber(e.target.value);
+    const results = e.target.value;
     setCcNumber(results);
   };
 
@@ -84,17 +74,26 @@ function CardDetailsForm() {
 
   const checkErrorValidation = data => {
     let checkSubmit;
-    const checkFieldFormat = ['card_number', 'month', 'year', 'cvc'];
+    const checkFieldFormat = ['card_number', 'cvc', 'month', 'year'];
 
     Object.entries(data).filter(([key, value]) => {
       if (isEmptyString(value)) {
-        setError({ [key]: ERROR_MESSAGE.EMPTY_STRING });
+        setError(prevState => ({
+          ...prevState,
+          [key]: ERROR_MESSAGE.EMPTY_STRING,
+        }));
         checkSubmit = false;
-      } else if (checkFieldFormat.includes(key) && !containsOnlyNumbers(value)) {
-        setError({ [key]: ERROR_MESSAGE.NUMBERS_ONLY });
+      } else if (checkFieldFormat.includes(key) && containsAnyLetters(value)) {
+        setError((prevState => ({
+          ...prevState,
+          [key]: ERROR_MESSAGE.NUMBERS_ONLY,
+        })));
         checkSubmit = false;
       } else {
-        setError({ [key]: null });
+        setError((prevState => ({
+          ...prevState,
+          [key]: null,
+        })));
         checkSubmit = true;
       }
     });
@@ -102,7 +101,8 @@ function CardDetailsForm() {
   };
 
   const onClickSubmit = e => {
-    console.log(dataToSubmit)
+    console.log('error', error)
+    console.log('data', dataToSubmit)
     e.preventDefault();
     setSubmit(checkErrorValidation(dataToSubmit));
   };
