@@ -34,6 +34,14 @@ function CardDetailsForm() {
   const [ccYear, setCcYear] = useState('');
   const [ccName, setCcName] = useState('');
   const [submit, setSubmit] = useState(false);
+  const [canSubmit, setCanSubmit] = useState({
+    card_holder: false,
+    card_number: false,
+    month: false,
+    year: false,
+    cvc: false,
+  });
+
   const [error, setError] = useState({
     card_holder: null,
     card_number: null,
@@ -73,7 +81,6 @@ function CardDetailsForm() {
   };
 
   const checkErrorValidation = data => {
-    let checkSubmit;
     const checkFieldFormat = ['card_number', 'cvc', 'month', 'year'];
 
     Object.entries(data).filter(([key, value]) => {
@@ -82,29 +89,39 @@ function CardDetailsForm() {
           ...prevState,
           [key]: ERROR_MESSAGE.EMPTY_STRING,
         }));
-        checkSubmit = false;
       } else if (checkFieldFormat.includes(key) && containsAnyLetters(value)) {
         setError((prevState => ({
           ...prevState,
           [key]: ERROR_MESSAGE.NUMBERS_ONLY,
         })));
-        checkSubmit = false;
-      } else {
+      } else if (!isEmptyString(value) && !containsAnyLetters(value) && key !== 'card_holder') {
         setError((prevState => ({
           ...prevState,
           [key]: null,
         })));
-        checkSubmit = true;
+        setCanSubmit(prevState => ({
+          ...prevState,
+          [key]: true,
+        }));
+      } else if (!isEmptyString(value) && key === 'card_holder') {
+        setError((prevState => ({
+          ...prevState,
+          [key]: null,
+        })));
+        setCanSubmit(prevState => ({
+          ...prevState,
+          [key]: true,
+        }));
       }
     });
-    return checkSubmit;
   };
 
   const onClickSubmit = e => {
-    console.log('error', error)
-    console.log('data', dataToSubmit)
     e.preventDefault();
-    setSubmit(checkErrorValidation(dataToSubmit));
+    checkErrorValidation(dataToSubmit);
+   //TODO logic for submit
+    console.log('data', dataToSubmit)
+    console.log(canSubmit)
   };
 
   return (
