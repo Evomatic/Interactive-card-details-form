@@ -17,6 +17,11 @@
   min-width: 323px !important;
 }
 
+.MuiFormHelperText-root {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
 .name-label {
   position: relative !important;
   margin-bottom: -33px;
@@ -83,4 +88,11 @@
   border-radius: 10px !important;
   padding: 12px 22px !important;
   font-size: 18px !important;
+}
+
+@media (min-width: 992px){
+  .form {
+  margin: -55px 0px 0px 55% !important;
+    width: 400px;
+  }
 }

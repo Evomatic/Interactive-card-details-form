@@ -9,3 +9,10 @@
   padding-right: 0px !important;
   padding-left: 0px !important;
 }
+
+@media (min-width: 992px){
+  .container {
+  background-image: url('./assets/bg-main-desktop.png');
+  background-size: auto;
+  }
+}
