@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import PropTypes from 'prop-types';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import CompleteView from './CompleteView';
 import CreditCardBack from './CreditCardBack';
@@ -58,6 +58,12 @@ function CardDetailsForm() {
     cvc: cvcValue,
   };
 
+  useEffect(() => {
+    if (setSubmission(canSubmit)) {
+      setSubmit(true);
+    }
+  }, [canSubmit]);
+
   const creditCardBackOnChange = e => {
     setCvcValue(e.target.value);
   };
@@ -80,6 +86,10 @@ function CardDetailsForm() {
     setCcName(results);
   };
 
+  const setSubmission = canSubmit => {
+    return Object.values(canSubmit).every(value => value === true);
+  };
+
   const checkErrorValidation = data => {
     const checkFieldFormat = ['card_number', 'cvc', 'month', 'year'];
 
@@ -89,25 +99,37 @@ function CardDetailsForm() {
           ...prevState,
           [key]: ERROR_MESSAGE.EMPTY_STRING,
         }));
+        setCanSubmit(prevState => ({
+          ...prevState,
+          [key]: false,
+        }));
       } else if (checkFieldFormat.includes(key) && containsAnyLetters(value)) {
-        setError((prevState => ({
+        setError(prevState => ({
           ...prevState,
           [key]: ERROR_MESSAGE.NUMBERS_ONLY,
-        })));
-      } else if (!isEmptyString(value) && !containsAnyLetters(value) && key !== 'card_holder') {
-        setError((prevState => ({
+        }));
+        setCanSubmit(prevState => ({
+          ...prevState,
+          [key]: false,
+        }));
+      } else if (
+        !isEmptyString(value) &&
+        !containsAnyLetters(value) &&
+        key !== 'card_holder'
+      ) {
+        setError(prevState => ({
           ...prevState,
           [key]: null,
-        })));
+        }));
         setCanSubmit(prevState => ({
           ...prevState,
           [key]: true,
         }));
       } else if (!isEmptyString(value) && key === 'card_holder') {
-        setError((prevState => ({
+        setError(prevState => ({
           ...prevState,
           [key]: null,
-        })));
+        }));
         setCanSubmit(prevState => ({
           ...prevState,
           [key]: true,
@@ -119,9 +141,6 @@ function CardDetailsForm() {
   const onClickSubmit = e => {
     e.preventDefault();
     checkErrorValidation(dataToSubmit);
-   //TODO logic for submit
-    console.log('data', dataToSubmit)
-    console.log(canSubmit)
   };
 
   return (

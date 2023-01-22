@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import bgCreditCardFront from './assets/bg-card-front.png';
 import cardLogo from './assets/card-logo.svg';
-import { formatCardNumber,isEmptyString, removeLetters } from './utils';
+import { formatCardNumber, isEmptyString, removeLetters } from './utils';
 function CreditCardFront(props) {
   const { name, month, year, number } = props;
 

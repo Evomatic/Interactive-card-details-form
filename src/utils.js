@@ -7,7 +7,6 @@ export const removeNumbers = value => {
 };
 
 export const containsAnyLetters = value => {
-  console.log(/[a-z]/i.test(value));
   return /[a-z]/i.test(value);
 };
 
