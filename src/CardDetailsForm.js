@@ -140,7 +140,16 @@ function CardDetailsForm() {
 
   const onClickSubmit = e => {
     e.preventDefault();
-    checkErrorValidation(dataToSubmit);
+    if (!submit) {
+      checkErrorValidation(dataToSubmit);
+    } else if (submit) {
+      setSubmit(false);
+      setCvcValue('');
+      setCcNumber('');
+      setCcMonth('');
+      setCcYear('');
+      setCcName('');
+    }
   };
 
   return (
