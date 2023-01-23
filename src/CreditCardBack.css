@@ -23,3 +23,28 @@
   padding-right: 35px;
   font-size: 12px;
 }
+
+@media (min-width: 992px){
+ .credit-card-back-container {
+  top: 230px;
+  left: 3%;
+  height: 210px;
+  width: 380px;
+  grid-area: back;
+ }
+
+ .credit-card-cvc {
+  padding-top: 94px;
+  padding-right: 45px;
+ }
+}
+
+@media (min-width: 1200px){
+  .credit-card-back-container {
+    height: 210px;
+    width: 380px;
+    top: 230px;
+    left: 10%;
+    grid-area: back;
+ }
+}

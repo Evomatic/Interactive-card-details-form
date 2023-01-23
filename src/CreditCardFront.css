@@ -68,3 +68,23 @@
   margin-left: 24px;
   position: absolute;
 }
+
+@media (min-width: 992px){
+ .credit-card-front-container {
+  height: 210px;
+  width: 380px;
+  top: 240px;
+  left: 3%;
+  grid-area: front;
+ }
+ }
+
+ @media (min-width: 1200px){
+  .credit-card-front-container {
+    height: 210px;
+    width: 380px;
+    top: 240px;
+    left: 10%;
+    grid-area: front;
+ }
+}

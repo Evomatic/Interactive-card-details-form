@@ -1,8 +1,5 @@
 .credit-card-container {
   display: grid;
-  grid-template-areas:
-    'back'
-    'front';
   position: relative;
   width: 100%;
   height: 300px;
@@ -94,5 +91,10 @@
   .form {
   margin: -55px 0px 0px 55% !important;
     width: 400px;
+  }
+  .credit-card-container {
+    grid-template-areas:
+    'front'
+    'back';
   }
 }
