@@ -24,37 +24,37 @@
   font-size: 12px;
 }
 
-@media (min-width: 992px){
- .credit-card-back-container {
-  top: 200px;
-  left: 50px;
-  height: 210px;
-  width: 380px;
-  grid-area: back;
- }
+@media (min-width: 992px) {
+  .credit-card-back-container {
+    top: 200px;
+    left: 50px;
+    height: 210px;
+    width: 380px;
+    grid-area: back;
+  }
 
- .credit-card-cvc {
-  padding-top: 94px;
-  padding-right: 45px;
- }
+  .credit-card-cvc {
+    padding-top: 94px;
+    padding-right: 45px;
+  }
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1200px) {
   .credit-card-back-container {
     height: 210px;
     width: 380px;
     top: 200px;
     left: 120px;
     grid-area: back;
- }
+  }
 }
 
-@media (min-width: 1440px){
+@media (min-width: 1440px) {
   .credit-card-back-container {
     height: 210px;
     width: 380px;
     top: 200px;
     left: 230px;
     grid-area: back;
- }
+  }
 }

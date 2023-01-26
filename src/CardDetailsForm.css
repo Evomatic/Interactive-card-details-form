@@ -87,39 +87,39 @@
   font-size: 18px !important;
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) {
   .form {
-  margin: -55px 0px 0px 550px !important;
+    margin: -55px 0px 0px 550px !important;
     width: 400px;
   }
   .credit-card-container {
     grid-template-areas:
-    'front'
-    'back';
+      'front'
+      'back';
   }
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1200px) {
   .form {
     margin: -55px 0px 0px 650px !important;
-      width: 400px;
-    }
-    .credit-card-container {
-      grid-template-areas:
+    width: 400px;
+  }
+  .credit-card-container {
+    grid-template-areas:
       'front'
       'back';
-    }
+  }
 }
 
-@media (min-width: 1440px){
+@media (min-width: 1440px) {
   .form {
     margin: -55px 0px 0px 800px !important;
-      width: 400px;
-    }
+    width: 400px;
+  }
 
-    .credit-card-container {
-      grid-template-areas:
+  .credit-card-container {
+    grid-template-areas:
       'front'
       'back';
-    }
+  }
 }

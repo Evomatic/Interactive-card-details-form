@@ -10,7 +10,12 @@ import { Fragment, useEffect, useState } from 'react';
 import CompleteView from './CompleteView';
 import CreditCardBack from './CreditCardBack';
 import CreditCardFront from './CreditCardFront';
-import { containsAnyLetters, isEmptyString, removeNumbers } from './utils';
+import {
+  checkLengthOfString,
+  containsAnyLetters,
+  isEmptyString,
+  removeNumbers,
+} from './utils';
 
 const textFieldStyle = {
   '& .MuiOutlinedInput-root': {
@@ -94,7 +99,7 @@ function CardDetailsForm() {
     const checkFieldFormat = ['card_number', 'cvc', 'month', 'year'];
 
     Object.entries(data).filter(([key, value]) => {
-      if (isEmptyString(value)) {
+      if (isEmptyString(value) || !checkLengthOfString(key, value)) {
         setError(prevState => ({
           ...prevState,
           [key]: ERROR_MESSAGE.EMPTY_STRING,

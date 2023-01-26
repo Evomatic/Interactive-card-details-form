@@ -20,3 +20,17 @@ export const formatCardNumber = value => {
 export const isEmptyString = value => {
   return value.trim().length === 0;
 };
+
+export const checkLengthOfString = (key, value) => {
+  const valueLength = value.split('').length;
+
+  if (key === 'card_number') {
+    return valueLength === 16;
+  } else if (key === 'cvc') {
+    return valueLength === 3;
+  } else if (key === 'month' || key === 'year') {
+    return valueLength === 2;
+  } else {
+    return true;
+  }
+};
