@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [coming soon](https://your-solution-url.com)
-- Live Site URL: [coming soon](https://your-live-site-url.com)
+- Solution URL: [solution](https://www.frontendmentor.io/solutions/responsive-credit-card-form-using-react-and-mui5-coNM3ajOPU)
+- Live Site URL: [live](https://evomatic.github.io/Interactive-card-details-form/)
 
 ## My process
 
