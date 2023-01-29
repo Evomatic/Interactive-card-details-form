@@ -43,7 +43,6 @@
 
 .month {
   position: absolute;
-  margin-left: -2px;
 }
 
 .slash {
@@ -92,6 +91,10 @@
 
   .credit-card-exp {
     padding-left: 310px;
+  }
+
+  .month {
+    margin-left: -2px;
   }
 
   .credit-card-name-exp {
