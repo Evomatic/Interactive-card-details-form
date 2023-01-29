@@ -45,7 +45,6 @@
     width: 380px;
     top: 200px;
     left: 120px;
-    grid-area: back;
   }
 }
 
@@ -55,6 +54,5 @@
     width: 380px;
     top: 200px;
     left: 230px;
-    grid-area: back;
   }
 }

@@ -1,5 +1,6 @@
 .credit-card-container {
   display: grid;
+  justify-content: center;
   position: relative;
   width: 100%;
   height: 300px;
@@ -12,6 +13,7 @@
   row-gap: 50px;
   margin: 35px 25px 25px 25px !important;
   min-width: 323px !important;
+  max-width: 500px;
 }
 
 .MuiFormHelperText-root {
@@ -93,6 +95,7 @@
     width: 400px;
   }
   .credit-card-container {
+    justify-content: inherit;
     grid-template-areas:
       'front'
       'back';
@@ -102,24 +105,11 @@
 @media (min-width: 1200px) {
   .form {
     margin: -55px 0px 0px 650px !important;
-    width: 400px;
-  }
-  .credit-card-container {
-    grid-template-areas:
-      'front'
-      'back';
   }
 }
 
 @media (min-width: 1440px) {
   .form {
     margin: -55px 0px 0px 800px !important;
-    width: 400px;
-  }
-
-  .credit-card-container {
-    grid-template-areas:
-      'front'
-      'back';
   }
 }

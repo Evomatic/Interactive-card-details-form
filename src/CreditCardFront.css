@@ -12,7 +12,6 @@
   height: 166px;
   position: relative;
   top: -72px;
-  left: 15px;
 }
 
 .credit-card-number {
@@ -108,41 +107,12 @@
 
 @media (min-width: 1200px) {
   .credit-card-front-container {
-    height: 210px;
-    width: 380px;
-    top: 200px;
     left: 120px;
-    grid-area: front;
-  }
-
-  .credit-card-logo {
-    margin-top: 25px;
-    width: 70px;
-    height: 40px;
-  }
-
-  .credit-card-number {
-    top: 118px;
-    font-size: 25px;
-    padding-right: 35px;
-  }
-
-  .credit-card-exp {
-    padding-left: 310px;
-  }
-
-  .credit-card-name-exp {
-    top: 170px;
-    font-size: 12px;
   }
 }
 
 @media (min-width: 1440px) {
   .credit-card-front-container {
-    height: 210px;
-    width: 380px;
-    top: 200px;
     left: 240px;
-    grid-area: front;
   }
 }
