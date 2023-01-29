@@ -30,12 +30,12 @@ Users should be able to:
 
 **Mobile View**
 
-  <img src="https://user-images.githubusercontent.com/27636896/215310458-85586642-9489-4534-864e-b242159b365e.png" width="250" height="460" />
+  <img src="https://user-images.githubusercontent.com/27636896/215310458-85586642-9489-4534-864e-b242159b365e.png" width="25%" height="46%" />
   
   
 **Desktop view**
 
-  <img src="https://user-images.githubusercontent.com/27636896/215310755-d071d9c9-caaa-4baf-8c17-99e1207b364a.png" width="800" height="400" />
+  <img src="https://user-images.githubusercontent.com/27636896/215310755-d071d9c9-caaa-4baf-8c17-99e1207b364a.png" width="80%" height="40%" />
 
 
 ### Links
