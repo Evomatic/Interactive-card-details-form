@@ -41,7 +41,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [solution](https://www.frontendmentor.io/solutions/responsive-credit-card-form-using-react-and-mui5-coNM3ajOPU)
-- Live Site URL: [live](https://evomatic.github.io/Interactive-card-details-form/)
+- Live Site URL: [live]([https://evomatic.github.io/Interactive-card-details-form/](https://evomatic-interactive-card-form.netlify.app/))
 
 ## My process
 
