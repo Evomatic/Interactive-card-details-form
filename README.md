@@ -1,5 +1,10 @@
 # Frontend Mentor - Interactive card details form solution
 
+### Links
+
+- Solution URL: [solution](https://www.frontendmentor.io/solutions/responsive-credit-card-form-using-react-and-mui5-coNM3ajOPU)
+- Live Site URL: [live](https://evomatic-interactive-card-form.netlify.app/)
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -36,12 +41,6 @@ Users should be able to:
 **Desktop view**
 
   <img src="https://user-images.githubusercontent.com/27636896/215310755-d071d9c9-caaa-4baf-8c17-99e1207b364a.png" width="80%" height="40%" />
-
-
-### Links
-
-- Solution URL: [solution](https://www.frontendmentor.io/solutions/responsive-credit-card-form-using-react-and-mui5-coNM3ajOPU)
-- Live Site URL: [live]([https://evomatic.github.io/Interactive-card-details-form/](https://evomatic-interactive-card-form.netlify.app/))
 
 ## My process
 
